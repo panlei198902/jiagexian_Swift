@@ -14,6 +14,7 @@
 		C2F360AC1DF70BF100B0B058 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F360AA1DF70BF100B0B058 /* LaunchScreen.storyboard */; };
 		C2F360B71DF70BF200B0B058 /* jiagexian_SwfitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F360B61DF70BF200B0B058 /* jiagexian_SwfitTests.swift */; };
 		C2F360C21DF70BF200B0B058 /* jiagexian_SwfitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F360C11DF70BF200B0B058 /* jiagexian_SwfitUITests.swift */; };
+		C2F360D11DF70C2700B0B058 /* BLHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F360D01DF70C2700B0B058 /* BLHelp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C2F360BD1DF70BF200B0B058 /* jiagexian_SwfitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jiagexian_SwfitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F360C11DF70BF200B0B058 /* jiagexian_SwfitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jiagexian_SwfitUITests.swift; sourceTree = "<group>"; };
 		C2F360C31DF70BF200B0B058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2F360D01DF70C2700B0B058 /* BLHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLHelp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		C2F360951DF70BF100B0B058 = {
 			isa = PBXGroup;
 			children = (
+				C2F360CF1DF70C0300B0B058 /* BusinessLayer */,
 				C2F360A01DF70BF100B0B058 /* jiagexian_Swfit */,
 				C2F360B51DF70BF200B0B058 /* jiagexian_SwfitTests */,
 				C2F360C01DF70BF200B0B058 /* jiagexian_SwfitUITests */,
@@ -123,6 +126,14 @@
 				C2F360C31DF70BF200B0B058 /* Info.plist */,
 			);
 			path = jiagexian_SwfitUITests;
+			sourceTree = "<group>";
+		};
+		C2F360CF1DF70C0300B0B058 /* BusinessLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C2F360D01DF70C2700B0B058 /* BLHelp.swift */,
+			);
+			name = BusinessLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F360D11DF70C2700B0B058 /* BLHelp.swift in Sources */,
 				C2F360A41DF70BF100B0B058 /* ViewController.swift in Sources */,
 				C2F360A21DF70BF100B0B058 /* AppDelegate.swift in Sources */,
 			);
@@ -512,6 +524,7 @@
 				C2F360C81DF70BF200B0B058 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2F360C91DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_SwfitTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +533,7 @@
 				C2F360CB1DF70BF200B0B058 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2F360CC1DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_SwfitUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +542,7 @@
 				C2F360CE1DF70BF200B0B058 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
