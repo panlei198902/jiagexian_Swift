@@ -35,17 +35,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C2F3609E1DF70BF100B0B058 /* jiagexian_Swfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jiagexian_Swfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F3609E1DF70BF100B0B058 /* jiagexian_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jiagexian_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F360A11DF70BF100B0B058 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F360A31DF70BF100B0B058 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C2F360A61DF70BF100B0B058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C2F360A81DF70BF100B0B058 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2F360AB1DF70BF100B0B058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2F360AD1DF70BF100B0B058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2F360B21DF70BF200B0B058 /* jiagexian_SwfitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jiagexian_SwfitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F360B21DF70BF200B0B058 /* jiagexian_SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jiagexian_SwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F360B61DF70BF200B0B058 /* jiagexian_SwfitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jiagexian_SwfitTests.swift; sourceTree = "<group>"; };
 		C2F360B81DF70BF200B0B058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2F360BD1DF70BF200B0B058 /* jiagexian_SwfitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jiagexian_SwfitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F360BD1DF70BF200B0B058 /* jiagexian_SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jiagexian_SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F360C11DF70BF200B0B058 /* jiagexian_SwfitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jiagexian_SwfitUITests.swift; sourceTree = "<group>"; };
 		C2F360C31DF70BF200B0B058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2F360D01DF70C2700B0B058 /* BLHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLHelp.swift; sourceTree = "<group>"; };
@@ -90,9 +90,9 @@
 		C2F3609F1DF70BF100B0B058 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C2F3609E1DF70BF100B0B058 /* jiagexian_Swfit.app */,
-				C2F360B21DF70BF200B0B058 /* jiagexian_SwfitTests.xctest */,
-				C2F360BD1DF70BF200B0B058 /* jiagexian_SwfitUITests.xctest */,
+				C2F3609E1DF70BF100B0B058 /* jiagexian_Swift.app */,
+				C2F360B21DF70BF200B0B058 /* jiagexian_SwiftTests.xctest */,
+				C2F360BD1DF70BF200B0B058 /* jiagexian_SwiftUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,9 +139,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C2F3609D1DF70BF100B0B058 /* jiagexian_Swfit */ = {
+		C2F3609D1DF70BF100B0B058 /* jiagexian_Swift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2F360C61DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_Swfit" */;
+			buildConfigurationList = C2F360C61DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_Swift" */;
 			buildPhases = (
 				C2F3609A1DF70BF100B0B058 /* Sources */,
 				C2F3609B1DF70BF100B0B058 /* Frameworks */,
@@ -151,14 +151,14 @@
 			);
 			dependencies = (
 			);
-			name = jiagexian_Swfit;
+			name = jiagexian_Swift;
 			productName = jiagexian_Swfit;
-			productReference = C2F3609E1DF70BF100B0B058 /* jiagexian_Swfit.app */;
+			productReference = C2F3609E1DF70BF100B0B058 /* jiagexian_Swift.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C2F360B11DF70BF200B0B058 /* jiagexian_SwfitTests */ = {
+		C2F360B11DF70BF200B0B058 /* jiagexian_SwiftTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2F360C91DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_SwfitTests" */;
+			buildConfigurationList = C2F360C91DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_SwiftTests" */;
 			buildPhases = (
 				C2F360AE1DF70BF200B0B058 /* Sources */,
 				C2F360AF1DF70BF200B0B058 /* Frameworks */,
@@ -169,14 +169,14 @@
 			dependencies = (
 				C2F360B41DF70BF200B0B058 /* PBXTargetDependency */,
 			);
-			name = jiagexian_SwfitTests;
+			name = jiagexian_SwiftTests;
 			productName = jiagexian_SwfitTests;
-			productReference = C2F360B21DF70BF200B0B058 /* jiagexian_SwfitTests.xctest */;
+			productReference = C2F360B21DF70BF200B0B058 /* jiagexian_SwiftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C2F360BC1DF70BF200B0B058 /* jiagexian_SwfitUITests */ = {
+		C2F360BC1DF70BF200B0B058 /* jiagexian_SwiftUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2F360CC1DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_SwfitUITests" */;
+			buildConfigurationList = C2F360CC1DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_SwiftUITests" */;
 			buildPhases = (
 				C2F360B91DF70BF200B0B058 /* Sources */,
 				C2F360BA1DF70BF200B0B058 /* Frameworks */,
@@ -187,9 +187,9 @@
 			dependencies = (
 				C2F360BF1DF70BF200B0B058 /* PBXTargetDependency */,
 			);
-			name = jiagexian_SwfitUITests;
+			name = jiagexian_SwiftUITests;
 			productName = jiagexian_SwfitUITests;
-			productReference = C2F360BD1DF70BF200B0B058 /* jiagexian_SwfitUITests.xctest */;
+			productReference = C2F360BD1DF70BF200B0B058 /* jiagexian_SwiftUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -221,7 +221,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C2F360991DF70BF100B0B058 /* Build configuration list for PBXProject "jiagexian_Swfit" */;
+			buildConfigurationList = C2F360991DF70BF100B0B058 /* Build configuration list for PBXProject "jiagexian_Swift" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -234,9 +234,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C2F3609D1DF70BF100B0B058 /* jiagexian_Swfit */,
-				C2F360B11DF70BF200B0B058 /* jiagexian_SwfitTests */,
-				C2F360BC1DF70BF200B0B058 /* jiagexian_SwfitUITests */,
+				C2F3609D1DF70BF100B0B058 /* jiagexian_Swift */,
+				C2F360B11DF70BF200B0B058 /* jiagexian_SwiftTests */,
+				C2F360BC1DF70BF200B0B058 /* jiagexian_SwiftUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -300,12 +300,12 @@
 /* Begin PBXTargetDependency section */
 		C2F360B41DF70BF200B0B058 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C2F3609D1DF70BF100B0B058 /* jiagexian_Swfit */;
+			target = C2F3609D1DF70BF100B0B058 /* jiagexian_Swift */;
 			targetProxy = C2F360B31DF70BF200B0B058 /* PBXContainerItemProxy */;
 		};
 		C2F360BF1DF70BF200B0B058 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C2F3609D1DF70BF100B0B058 /* jiagexian_Swfit */;
+			target = C2F3609D1DF70BF100B0B058 /* jiagexian_Swift */;
 			targetProxy = C2F360BE1DF70BF200B0B058 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -458,7 +458,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "derex.jiagexian-SwfitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jiagexian_Swfit.app/jiagexian_Swfit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jiagexian_Swift.app/jiagexian_Swift";
 			};
 			name = Debug;
 		};
@@ -473,7 +473,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "derex.jiagexian-SwfitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jiagexian_Swfit.app/jiagexian_Swfit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jiagexian_Swift.app/jiagexian_Swift";
 			};
 			name = Release;
 		};
@@ -508,7 +508,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C2F360991DF70BF100B0B058 /* Build configuration list for PBXProject "jiagexian_Swfit" */ = {
+		C2F360991DF70BF100B0B058 /* Build configuration list for PBXProject "jiagexian_Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2F360C41DF70BF200B0B058 /* Debug */,
@@ -517,7 +517,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2F360C61DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_Swfit" */ = {
+		C2F360C61DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2F360C71DF70BF200B0B058 /* Debug */,
@@ -526,7 +526,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2F360C91DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_SwfitTests" */ = {
+		C2F360C91DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_SwiftTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2F360CA1DF70BF200B0B058 /* Debug */,
@@ -535,7 +535,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2F360CC1DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_SwfitUITests" */ = {
+		C2F360CC1DF70BF200B0B058 /* Build configuration list for PBXNativeTarget "jiagexian_SwiftUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2F360CD1DF70BF200B0B058 /* Debug */,

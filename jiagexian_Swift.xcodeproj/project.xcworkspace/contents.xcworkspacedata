@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:jiagexian_Swfit.xcodeproj">
+      location = "self:/Users/derexpan/Code/jiagexian_Swfit/jiagexian_Swift.xcodeproj">
    </FileRef>
 </Workspace>

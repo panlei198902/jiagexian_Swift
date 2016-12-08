@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C2F3609D1DF70BF100B0B058"
-               BuildableName = "jiagexian_Swfit.app"
-               BlueprintName = "jiagexian_Swfit"
-               ReferencedContainer = "container:jiagexian_Swfit.xcodeproj">
+               BuildableName = "jiagexian_Swift.app"
+               BlueprintName = "jiagexian_Swift"
+               ReferencedContainer = "container:jiagexian_Swift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C2F360B11DF70BF200B0B058"
-               BuildableName = "jiagexian_SwfitTests.xctest"
-               BlueprintName = "jiagexian_SwfitTests"
-               ReferencedContainer = "container:jiagexian_Swfit.xcodeproj">
+               BuildableName = "jiagexian_SwiftTests.xctest"
+               BlueprintName = "jiagexian_SwiftTests"
+               ReferencedContainer = "container:jiagexian_Swift.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C2F360BC1DF70BF200B0B058"
-               BuildableName = "jiagexian_SwfitUITests.xctest"
-               BlueprintName = "jiagexian_SwfitUITests"
-               ReferencedContainer = "container:jiagexian_Swfit.xcodeproj">
+               BuildableName = "jiagexian_SwiftUITests.xctest"
+               BlueprintName = "jiagexian_SwiftUITests"
+               ReferencedContainer = "container:jiagexian_Swift.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C2F3609D1DF70BF100B0B058"
-            BuildableName = "jiagexian_Swfit.app"
-            BlueprintName = "jiagexian_Swfit"
-            ReferencedContainer = "container:jiagexian_Swfit.xcodeproj">
+            BuildableName = "jiagexian_Swift.app"
+            BlueprintName = "jiagexian_Swift"
+            ReferencedContainer = "container:jiagexian_Swift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C2F3609D1DF70BF100B0B058"
-            BuildableName = "jiagexian_Swfit.app"
-            BlueprintName = "jiagexian_Swfit"
-            ReferencedContainer = "container:jiagexian_Swfit.xcodeproj">
+            BuildableName = "jiagexian_Swift.app"
+            BlueprintName = "jiagexian_Swift"
+            ReferencedContainer = "container:jiagexian_Swift.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C2F3609D1DF70BF100B0B058"
-            BuildableName = "jiagexian_Swfit.app"
-            BlueprintName = "jiagexian_Swfit"
-            ReferencedContainer = "container:jiagexian_Swfit.xcodeproj">
+            BuildableName = "jiagexian_Swift.app"
+            BlueprintName = "jiagexian_Swift"
+            ReferencedContainer = "container:jiagexian_Swift.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
