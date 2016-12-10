@@ -12,6 +12,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let hotelBL = HotelBL.sharedInstance
+//        let returnss = hotelBL.selectKey(city: "北京")
+//        let returns11 = hotelBL.queryHotel(keyInfo: <#T##NSDictionary#>)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
