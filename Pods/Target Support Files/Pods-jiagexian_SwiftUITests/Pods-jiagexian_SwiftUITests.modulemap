@@ -1,0 +1,6 @@
+framework module Pods_jiagexian_SwiftUITests {
+  umbrella header "Pods-jiagexian_SwiftUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_jiagexian_Swift {
+  umbrella header "Pods-jiagexian_Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}
