@@ -9,13 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var selectCity: UIButton!
+    @IBOutlet weak var selectKey: UIButton!
+    @IBOutlet weak var priceRange: UIButton!
+    @IBOutlet weak var checkinDate: UIButton!
+    @IBOutlet weak var checkoutDate: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let hotelBL = HotelBL.sharedInstance
-//        let returnss = hotelBL.selectKey(city: "北京")
-//        let returns11 = hotelBL.queryHotel(keyInfo: <#T##NSDictionary#>)
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
 
     override func didReceiveMemoryWarning() {
