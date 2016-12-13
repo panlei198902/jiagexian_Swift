@@ -102,21 +102,25 @@ class HotelBL: NSObject {
                           encoding: JSONEncoding.default,
                           headers: nil).responseJSON { response in
                             debugPrint(response)
+                            let list = NSMutableArray()
                             if let dataResult = response.result.value as? Data {
                                 let xml = SWXMLHash.parse(dataResult)
                                 var n = 0
                                 var hotelElement = xml["root"]["hotel_list"]["hotel"][n].element?.text
                                 repeat {
                                     var dict = Dictionary <String, Any>()
-                                    dict["id"] = xml["root"]["hotel_list"][n]["hotel"]["id"].element?.text
-                                    dict["name"] = xml["root"]["hotel_list"][n]["hotel"]["name"].element?.text
-                                    dict["city"] = xml["root"]["hotel_list"][n]["hotel"]["city"].element?.text
-                                    dict["address"] = xml["root"]["hotel_list"][n]["hotel"]["address"].element?.text
-                                    dict["phone"] = xml["root"]["hotel_list"][n]["hotel"]["phone"].element?.text
-                                    dict["lowprice"] = xml["root"]["hotel_list"][n]["hotel"]["lowprice"].element?.text
-                                    dict["grade"] = xml["root"]["hotel_list"][n]["hotel"]["grade"].element?.text
-                                    dict["description"] = xml["root"]["hotel_list"][n]["hotel"]["description"].element?.text
-                                    dict["img"] = xml["root"]["hotel_list"][n]["hotel"]["img"].element?.text
+                                    dict["id"] = xml["root"]["hotel_list"]["hotel"][n]["id"].element?.text!
+                                    dict["name"] = xml["root"]["hotel_list"]["hotel"][n]["name"].element?.text!
+                                    dict["city"] = xml["root"]["hotel_list"]["hotel"][n]["city"].element?.text!
+                                    dict["address"] = xml["root"]["hotel_list"]["hotel"][n]["address"].element?.text!
+                                    dict["phone"] = xml["root"]["hotel_list"]["hotel"][n]["phone"].element?.text!
+                                    dict["lowprice"] = BLHelp.prePrice(price: (xml["root"]["hotel_list"]["hotel"][n]["lowprice"].element?.text)!)
+                                    
+                                    dict["grade"] = BLHelp.preGrade(grade: (xml["root"]["hotel_list"]["hotel"][n]["grade"].element?.text)!)
+                                    
+                                    dict["description"] = xml["root"]["hotel_list"]["hotel"][n]["description"].element?.text!
+                                    //属性名字
+                                    dict["img"] = xml["root"]["hotel_list"]["hotel"][n].element?.attribute(by: "img")?.text
                                     
                                     //    NSMutableDictionary *dict = [NSMutableDictionary new];
                                     //    //取id
@@ -168,10 +172,11 @@ class HotelBL: NSObject {
                                     //    [dict setValue:src forKey:@"img"];
                                     //    }
                                     n = n + 1 //下一个元素
-                                    
+                                    list.add(dict)
+                                    hotelElement = xml["root"]["hotel_list"]["hotel"][n].element?.text
                                     
                                 } while hotelElement != nil
-                                
+                                //抛出通知
                             }
                             
                             

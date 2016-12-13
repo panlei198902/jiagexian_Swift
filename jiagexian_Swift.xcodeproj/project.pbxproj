@@ -10,6 +10,7 @@
 		27F68CD1ACA178311F345FA7 /* Pods_jiagexian_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539434DEFABBC337AE05DE93 /* Pods_jiagexian_SwiftUITests.framework */; };
 		431AB60DFDF02869C6611468 /* Pods_jiagexian_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9952E16AC778630EE11250B4 /* Pods_jiagexian_Swift.framework */; };
 		C236F7701DF9A2F600CA0E33 /* ss.m in Sources */ = {isa = PBXBuildFile; fileRef = C236F76F1DF9A2F600CA0E33 /* ss.m */; };
+		C296F9B21DFD5E4B00139D33 /* RoomBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296F9B11DFD5E4B00139D33 /* RoomBL.swift */; };
 		C2BF86441DFAE7C6000DE75B /* HotelBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BF86431DFAE7C6000DE75B /* HotelBL.swift */; };
 		C2F360A21DF70BF100B0B058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F360A11DF70BF100B0B058 /* AppDelegate.swift */; };
 		C2F360A41DF70BF100B0B058 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F360A31DF70BF100B0B058 /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		9AB8757CF311888E12B6CEBC /* Pods-jiagexian_SwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jiagexian_SwiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-jiagexian_SwiftTests/Pods-jiagexian_SwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		C236F76E1DF9A2F600CA0E33 /* jiagexian_Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jiagexian_Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		C236F76F1DF9A2F600CA0E33 /* ss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ss.m; sourceTree = "<group>"; };
+		C296F9B11DFD5E4B00139D33 /* RoomBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomBL.swift; sourceTree = "<group>"; };
 		C2BF86431DFAE7C6000DE75B /* HotelBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelBL.swift; sourceTree = "<group>"; };
 		C2F3609E1DF70BF100B0B058 /* jiagexian_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jiagexian_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F360A11DF70BF100B0B058 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			children = (
 				C2F360D01DF70C2700B0B058 /* BLHelp.swift */,
 				C2BF86431DFAE7C6000DE75B /* HotelBL.swift */,
+				C296F9B11DFD5E4B00139D33 /* RoomBL.swift */,
 			);
 			name = BusinessLayer;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C296F9B21DFD5E4B00139D33 /* RoomBL.swift in Sources */,
 				C2F360D11DF70C2700B0B058 /* BLHelp.swift in Sources */,
 				C236F7701DF9A2F600CA0E33 /* ss.m in Sources */,
 				C2F360A41DF70BF100B0B058 /* ViewController.swift in Sources */,
