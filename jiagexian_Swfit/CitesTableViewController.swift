@@ -9,15 +9,16 @@
 import UIKit
 
 class CitesTableViewController: UITableViewController {
-
+    
+    var cities = [NSArray]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let cityPist = Bundle.main.path(forResource: "cities", ofType: "plist")!
+        
+        //排序
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +30,22 @@ class CitesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.cities.count
     }
 
-    /*
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
 
-        // Configure the cell...
-
+        
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
