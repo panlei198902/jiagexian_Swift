@@ -1,3 +1,4 @@
+
 //
 //  CitesTableViewController.swift
 //  jiagexian_Swift
@@ -8,19 +9,31 @@
 
 import UIKit
 
+protocol CitesTableViewControllerDelegate {
+    func closeCitiesView(info: NSDictionary)
+}
+
 class CitesTableViewController: UITableViewController {
-    
-    var cities = [NSArray]()
+
+    var delegate:CitesTableViewControllerDelegate?
+    var cities = NSArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let cityPist = Bundle.main.path(forResource: "cities", ofType: "plist")!
         
-        //排序
+        if let cityPist = Bundle.main.path(forResource: "cities", ofType: "plist") {
+            //排序
+            let citiesNeedToSort = NSArray.init(contentsOfFile: cityPist)!
+            let bySpell = NSSortDescriptor.init(key: "spell", ascending: true)
+//            self.cities = citiesNeedToSort.sortedArray(using: [bySpell])
+            
+        }
         
     }
 
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,11 +54,25 @@ class CitesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
-
         
+        let dict = self.cities[indexPath.row] as! NSDictionary
+        let labelTitle = dict.object(forKey: "name") as? String
+        let labelSubtitle = dict.object(forKey: "spell") as? String
+        if labelTitle != nil {
+            cell.textLabel?.text = labelTitle!
+        }
+        if labelSubtitle != nil {
+            cell.detailTextLabel?.text = labelSubtitle
+        }
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dict = self.cities[indexPath.row] as! NSDictionary
+        self.delegate?.closeCitiesView(info: dict)
 
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
