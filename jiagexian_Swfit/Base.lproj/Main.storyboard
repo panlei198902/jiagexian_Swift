@@ -49,7 +49,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="搜索"/>
                                 <connections>
-                                    <segue destination="NT1-Hu-n0I" kind="show" id="md5-81-Utd"/>
+                                    <segue destination="NT1-Hu-n0I" kind="show" identifier="queryHotel" id="md5-81-Utd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBH-gR-iSq">
@@ -150,10 +150,10 @@
             </objects>
             <point key="canvasLocation" x="2616.8000000000002" y="-582.45877061469275"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Keys Table View Controller-->
         <scene sceneID="tpd-Ug-B5e">
             <objects>
-                <tableViewController id="gSD-Tf-UpK" sceneMemberID="viewController">
+                <tableViewController id="gSD-Tf-UpK" customClass="KeysTableViewController" customModule="jiagexian_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hT0-0w-lPq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

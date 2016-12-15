@@ -58,6 +58,7 @@
 		C246BA771E004E98000A001E /* HotelListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelListTableViewController.swift; sourceTree = "<group>"; };
 		C246BA791E004EA3000A001E /* RoomsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsListTableViewController.swift; sourceTree = "<group>"; };
 		C24AE1D71E00F149001AAE87 /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
+		C294C09A1E0289F000BDAF5F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C296F9B11DFD5E4B00139D33 /* RoomBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomBL.swift; sourceTree = "<group>"; };
 		C2BF86431DFAE7C6000DE75B /* HotelBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelBL.swift; sourceTree = "<group>"; };
 		C2F3609E1DF70BF100B0B058 /* jiagexian_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jiagexian_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +163,7 @@
 				C2F360AA1DF70BF100B0B058 /* LaunchScreen.storyboard */,
 				C2F360AD1DF70BF100B0B058 /* Info.plist */,
 				C236F76E1DF9A2F600CA0E33 /* jiagexian_Swift-Bridging-Header.h */,
+				C294C09A1E0289F000BDAF5F /* PrefixHeader.pch */,
 			);
 			path = jiagexian_Swfit;
 			sourceTree = "<group>";
@@ -279,7 +281,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "derex pan";
 				TargetAttributes = {
 					C2F3609D1DF70BF100B0B058 = {

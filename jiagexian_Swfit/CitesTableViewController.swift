@@ -25,12 +25,13 @@ class CitesTableViewController: UITableViewController {
             //排序
             let citiesNeedToSort = NSArray.init(contentsOfFile: cityPist)!
             let bySpell = NSSortDescriptor.init(key: "spell", ascending: true)
-//            self.cities = citiesNeedToSort.sortedArray(using: [bySpell])
+            self.cities = citiesNeedToSort.sortedArray(using: [bySpell]) as NSArray
             
         }
+        print(BLQueryKeyFinishedNotification)
         
     }
-
+    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }

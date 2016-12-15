@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, CitesTableViewControllerDelegate {
+let BLQueryKeyFinishedNotification = "BLQueryKeyFinishedNotification"
+
+class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTableViewControllerDelegate {
     @IBOutlet weak var selectCity: UIButton!
     @IBOutlet weak var selectKey: UIButton!
     @IBOutlet weak var priceRange: UIButton!
@@ -27,10 +29,27 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(querySelectkey(not:)), name: NSNotification.Name(rawValue: BLQueryKeyFinishedNotification), object: nil)
+    }
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        
+        switch identifier {
+        case "showkeys":
+            HotelBL.sharedInstance.selectKey(city: (self.selectKey.titleLabel?.text)!)
+            return false
+        case "queryHotel":
+            break
+        default:
+            break
+        }
         
         return true
+    }
+    
+    //成功查询到关键字
+    func querySelectkey(not:Notification) {
+        
     }
     
     func closeCitiesView(info: NSDictionary) {
@@ -48,13 +67,29 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showcities"{
-            let nvgViewController = segue.destination as! UINavigationController
-            let topViewController = nvgViewController.topViewController as! CitesTableViewController
-            topViewController.delegate = self
-            
-        }
+    func closeKeysCtroller(info: NSDictionary) {
+        
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifierString = segue.identifier {
+            switch identifierString {
+            case "showcities":
+                let nvgViewController = segue.destination as! UINavigationController
+                let topViewController = nvgViewController.topViewController as! CitesTableViewController
+                topViewController.delegate = self
+            case "showkeys":
+                let nvgViewController = segue.destination as! UINavigationController
+                let topViewController = nvgViewController.topViewController as! KeysTableViewController
+                topViewController.delegate = self
+            default:
+                break
+            }
+        }
+
+        
+
+    }
+
 }
 

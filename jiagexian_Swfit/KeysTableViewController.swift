@@ -8,8 +8,16 @@
 
 import UIKit
 
+protocol KeysTableViewControllerDelegate {
+    
+    func closeKeysCtroller(info: NSDictionary)
+}
 class KeysTableViewController: UITableViewController {
-
+    
+    var delegate: KeysTableViewControllerDelegate?
+    let keyTypeList = NSArray()
+    let keyDict = NSDictionary()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
