@@ -36,11 +36,12 @@ class HotelBL: NSObject {
             if let json = response.result.value  {
                 print("JSON: \(json)")
                 let dict = json as! NSDictionary
-                let key1 = dict.allKeys
-                print("key1:\(key1[0])")
+
+                //抛出通知
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: BLQueryKeyFinishedNotification), object: dict)
+                
             }
-            
-            //抛出通知
+         
             
         }
         

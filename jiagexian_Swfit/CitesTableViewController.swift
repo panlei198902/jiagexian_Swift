@@ -28,8 +28,6 @@ class CitesTableViewController: UITableViewController {
             self.cities = citiesNeedToSort.sortedArray(using: [bySpell]) as NSArray
             
         }
-        print(BLQueryKeyFinishedNotification)
-        
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {

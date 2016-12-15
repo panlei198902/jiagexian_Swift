@@ -9,8 +9,21 @@
 import UIKit
 
 let BLQueryKeyFinishedNotification = "BLQueryKeyFinishedNotification"
+//定义BL关键字查询失败通知
+let BLQueryKeyFailedNotification = "BLQueryKeyFailedNotification"
+
+//定义BL查询酒店成功通知
+let BLQueryHotelFinishedNotification = "BLQueryHotelFinishedNotification"
+//定义BL查询酒店失败通知
+let BLQueryHotelFailedNotification = "BLQueryHotelFailedNotification"
+
+//定义BL查询酒店房间成功通知
+let BLQueryRoomFinishedNotification = "BLQueryRoomFinishedNotification"
+//定义BL查询酒店房间失败通知
+let BLQueryRoomFailedNotification = "BLQueryRoomFailedNotification"
 
 class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTableViewControllerDelegate {
+    
     @IBOutlet weak var selectCity: UIButton!
     @IBOutlet weak var selectKey: UIButton!
     @IBOutlet weak var priceRange: UIButton!
@@ -49,6 +62,16 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
     
     //成功查询到关键字
     func querySelectkey(not:Notification) {
+        let temp = not.object as? NSDictionary
+        if temp == nil {
+            let alert = UIAlertController(title: "提示信息", message: "没有数据", preferredStyle: .alert)
+            let button = UIAlertAction(title: "了解", style: .cancel, handler: nil)
+            alert.addAction(button)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            performSegue(withIdentifier: "showkeys", sender: nil)
+        }
+        
         
     }
     

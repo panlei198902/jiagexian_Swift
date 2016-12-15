@@ -55,7 +55,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBH-gR-iSq">
                                 <rect key="frame" x="145" y="234" width="120" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="选择关键字"/>
+                                <state key="normal" title="选择城市"/>
                                 <connections>
                                     <segue destination="MEm-UX-eaa" kind="presentation" identifier="showcities" id="o0r-06-lFy"/>
                                 </connections>
