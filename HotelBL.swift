@@ -29,16 +29,29 @@ class HotelBL: NSObject {
         //转换url
         var strURL = self.KEY_QUERY_URL + city
         strURL = strURL.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-        
+        print("strURL: \(strURL)")
         Alamofire.request(strURL).responseJSON { response in
             debugPrint(response)
             
-            if let json = response.result.value  {
-                print("JSON: \(json)")
-                let dict = json as! NSDictionary
+            if let json = response.result.value{
+                do {
+                    print("json: \(json)")
+                    if JSONSerialization.isValidJSONObject(json) {
+                        print("is a vailid JSONObject")
+                        //利用自带的json库转换成Data
+                        //如果设置options为JSONSerialization.WritingOptions.prettyPrinted，则打印格式更好阅读
+                        let data = try? JSONSerialization.data(withJSONObject: json, options: [])
+                        let dict = String(data:data!, encoding: String.Encoding.utf8)
+                        print("dict: \(dict!)")
+                        //抛出通知
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: BLQueryKeyFinishedNotification), object: dict!)
+                    }
 
-                //抛出通知
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: BLQueryKeyFinishedNotification), object: dict)
+                } catch {
+                    print("error")
+                }
+
+
                 
             }
          

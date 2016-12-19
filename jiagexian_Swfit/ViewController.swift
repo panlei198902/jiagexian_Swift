@@ -47,16 +47,12 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        switch identifier {
-        case "showkeys":
-            HotelBL.sharedInstance.selectKey(city: (self.selectKey.titleLabel?.text)!)
+        if identifier == "showkeys" {
+            HotelBL.sharedInstance.selectKey(city: (self.selectCity.titleLabel?.text)!)
             return false
-        case "queryHotel":
-            break
-        default:
-            break
+        } else if identifier == "queryHotel" {
+            return false
         }
-        
         return true
     }
     
@@ -105,6 +101,7 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
                 let nvgViewController = segue.destination as! UINavigationController
                 let topViewController = nvgViewController.topViewController as! KeysTableViewController
                 topViewController.delegate = self
+                topViewController.keyDict = self.cityInfo
             default:
                 break
             }
