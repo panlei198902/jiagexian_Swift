@@ -14,6 +14,10 @@
 		C246BA781E004E98000A001E /* HotelListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246BA771E004E98000A001E /* HotelListTableViewController.swift */; };
 		C246BA7A1E004EA3000A001E /* RoomsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246BA791E004EA3000A001E /* RoomsListTableViewController.swift */; };
 		C24AE1D81E00F149001AAE87 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = C24AE1D71E00F149001AAE87 /* cities.plist */; };
+		C28587E21E0ACB1D0066AE66 /* MyDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28587DD1E0ACB1D0066AE66 /* MyDatePickerViewController.m */; };
+		C28587E31E0ACB1D0066AE66 /* MyDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28587DE1E0ACB1D0066AE66 /* MyDatePickerViewController.xib */; };
+		C28587E41E0ACB1D0066AE66 /* MyPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28587E01E0ACB1D0066AE66 /* MyPickerViewController.m */; };
+		C28587E51E0ACB1D0066AE66 /* MyPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28587E11E0ACB1D0066AE66 /* MyPickerViewController.xib */; };
 		C296F9B21DFD5E4B00139D33 /* RoomBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296F9B11DFD5E4B00139D33 /* RoomBL.swift */; };
 		C2BF86441DFAE7C6000DE75B /* HotelBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BF86431DFAE7C6000DE75B /* HotelBL.swift */; };
 		C2F360A21DF70BF100B0B058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F360A11DF70BF100B0B058 /* AppDelegate.swift */; };
@@ -58,6 +62,12 @@
 		C246BA771E004E98000A001E /* HotelListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelListTableViewController.swift; sourceTree = "<group>"; };
 		C246BA791E004EA3000A001E /* RoomsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsListTableViewController.swift; sourceTree = "<group>"; };
 		C24AE1D71E00F149001AAE87 /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
+		C28587DC1E0ACB1D0066AE66 /* MyDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDatePickerViewController.h; sourceTree = "<group>"; };
+		C28587DD1E0ACB1D0066AE66 /* MyDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDatePickerViewController.m; sourceTree = "<group>"; };
+		C28587DE1E0ACB1D0066AE66 /* MyDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDatePickerViewController.xib; sourceTree = "<group>"; };
+		C28587DF1E0ACB1D0066AE66 /* MyPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPickerViewController.h; sourceTree = "<group>"; };
+		C28587E01E0ACB1D0066AE66 /* MyPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPickerViewController.m; sourceTree = "<group>"; };
+		C28587E11E0ACB1D0066AE66 /* MyPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPickerViewController.xib; sourceTree = "<group>"; };
 		C294C09A1E0289F000BDAF5F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C296F9B11DFD5E4B00139D33 /* RoomBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomBL.swift; sourceTree = "<group>"; };
 		C2BF86431DFAE7C6000DE75B /* HotelBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelBL.swift; sourceTree = "<group>"; };
@@ -128,9 +138,31 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
+		C28587DA1E0ACB050066AE66 /* 自定义控件 */ = {
+			isa = PBXGroup;
+			children = (
+				C28587DB1E0ACB1D0066AE66 /* 自定义控件 */,
+			);
+			name = "自定义控件";
+			sourceTree = "<group>";
+		};
+		C28587DB1E0ACB1D0066AE66 /* 自定义控件 */ = {
+			isa = PBXGroup;
+			children = (
+				C28587DC1E0ACB1D0066AE66 /* MyDatePickerViewController.h */,
+				C28587DD1E0ACB1D0066AE66 /* MyDatePickerViewController.m */,
+				C28587DE1E0ACB1D0066AE66 /* MyDatePickerViewController.xib */,
+				C28587DF1E0ACB1D0066AE66 /* MyPickerViewController.h */,
+				C28587E01E0ACB1D0066AE66 /* MyPickerViewController.m */,
+				C28587E11E0ACB1D0066AE66 /* MyPickerViewController.xib */,
+			);
+			path = "自定义控件";
+			sourceTree = "<group>";
+		};
 		C2F360951DF70BF100B0B058 = {
 			isa = PBXGroup;
 			children = (
+				C28587DA1E0ACB050066AE66 /* 自定义控件 */,
 				C2F360CF1DF70C0300B0B058 /* BusinessLayer */,
 				C2F360A01DF70BF100B0B058 /* jiagexian_Swfit */,
 				C2F360B51DF70BF200B0B058 /* jiagexian_SwfitTests */,
@@ -329,10 +361,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28587E51E0ACB1D0066AE66 /* MyPickerViewController.xib in Resources */,
 				C2F360AC1DF70BF100B0B058 /* LaunchScreen.storyboard in Resources */,
 				C2F360A91DF70BF100B0B058 /* Assets.xcassets in Resources */,
 				C2F360A71DF70BF100B0B058 /* Main.storyboard in Resources */,
 				C24AE1D81E00F149001AAE87 /* cities.plist in Resources */,
+				C28587E31E0ACB1D0066AE66 /* MyDatePickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +529,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28587E41E0ACB1D0066AE66 /* MyPickerViewController.m in Sources */,
+				C28587E21E0ACB1D0066AE66 /* MyDatePickerViewController.m in Sources */,
 				C246BA741E004E44000A001E /* CitesTableViewController.swift in Sources */,
 				C296F9B21DFD5E4B00139D33 /* RoomBL.swift in Sources */,
 				C246BA7A1E004EA3000A001E /* RoomsListTableViewController.swift in Sources */,

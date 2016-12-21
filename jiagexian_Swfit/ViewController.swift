@@ -22,7 +22,7 @@ let BLQueryRoomFinishedNotification = "BLQueryRoomFinishedNotification"
 //定义BL查询酒店房间失败通知
 let BLQueryRoomFailedNotification = "BLQueryRoomFailedNotification"
 
-class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTableViewControllerDelegate {
+class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTableViewControllerDelegate, MyPickerViewControllerDelegate, MyDatePickerViewControllerDelegate {
     
     @IBOutlet weak var selectCity: UIButton!
     @IBOutlet weak var selectKey: UIButton!
@@ -30,7 +30,9 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
     @IBOutlet weak var checkinDate: UIButton!
     @IBOutlet weak var checkoutDate: UIButton!
     
-    var cityInfo = NSDictionary()
+    let checkinView:MyDatePickerViewController? = nil
+    let checkoutView:MyDatePickerViewController? = nil
+    var cityInfo:Any? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +60,8 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
     
     //成功查询到关键字
     func querySelectkey(not:Notification) {
-        let temp = not.object as? NSDictionary
-        if temp == nil {
+        self.cityInfo = not.object
+        if self.cityInfo == nil {
             let alert = UIAlertController(title: "提示信息", message: "没有数据", preferredStyle: .alert)
             let button = UIAlertAction(title: "了解", style: .cancel, handler: nil)
             alert.addAction(button)
@@ -86,8 +88,9 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
         
     }
     
-    func closeKeysCtroller(info: NSDictionary) {
-        
+    func closeKeysCtroller(info: String) {
+        self.dismiss(animated: false, completion: nil)
+        self.selectKey.setTitle(info, for: .normal)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,14 +104,29 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
                 let nvgViewController = segue.destination as! UINavigationController
                 let topViewController = nvgViewController.topViewController as! KeysTableViewController
                 topViewController.delegate = self
-                topViewController.keyDict = self.cityInfo
+                topViewController.keyDict = self.cityInfo as! NSDictionary
             default:
                 break
             }
         }
-
+    }
+    
+    func myPickDateViewControllerDidFinish(_ controller: MyDatePickerViewController!, andSelectedDate selected: Date!) {
+        let date = DateFormatter()
+        date.dateFormat = "yyyy-MM-dd"
+        date.locale = Locale(identifier: "zh_CN")
         
-
+        let strData = date.string(from: selected)
+        if self.checkinView == controller {
+            self.checkinDate.setTitle(strData, for: .normal)
+        } else if self.checkoutView == controller {
+            self.checkoutDate.setTitle(strData, for: .normal)
+        }
+        
+    }
+    
+    func myPickViewClose(_ selected: String!) {
+        self.priceRange.setTitle(selected, for: .normal)
     }
 
 }

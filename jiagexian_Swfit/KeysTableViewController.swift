@@ -10,7 +10,7 @@ import UIKit
 
 protocol KeysTableViewControllerDelegate {
     
-    func closeKeysCtroller(info: NSDictionary)
+    func closeKeysCtroller(info: String)
 }
 class KeysTableViewController: UITableViewController {
     
@@ -86,13 +86,19 @@ class KeysTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let keyName = self.keyTypeList.object(at: indexPath.section) as! String
         let keyList = self.keyDict.object(forKey: keyName) as! NSArray
-        let valueArray = keyList.object(at: indexPath.row) as! NSArray
+        let valueArray = keyList.object(at: indexPath.row) as! NSDictionary
         cell.textLabel?.text = valueArray.value(forKey: "key") as? String
 
 
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let keyName = self.keyTypeList.object(at: indexPath.section) as! String
+        let keyList = self.keyDict.object(forKey: keyName) as! NSArray
+        let valueArray = keyList.object(at: indexPath.row) as! NSDictionary
+        self.delegate?.closeKeysCtroller(info:valueArray.object(forKey: "key") as! String)
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -41,10 +41,10 @@ class HotelBL: NSObject {
                         //利用自带的json库转换成Data
                         //如果设置options为JSONSerialization.WritingOptions.prettyPrinted，则打印格式更好阅读
                         let data = try? JSONSerialization.data(withJSONObject: json, options: [])
-                        let dict = String(data:data!, encoding: String.Encoding.utf8)
-                        print("dict: \(dict!)")
+                        let dict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+                        print("dict: \(dict)")
                         //抛出通知
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: BLQueryKeyFinishedNotification), object: dict!)
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: BLQueryKeyFinishedNotification), object: dict)
                     }
 
                 } catch {
