@@ -21,46 +21,6 @@ class KeysTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.keyTypeList = self.keyDict.allKeys as NSArray
-        
-//        let backgroundView =  UIImageView(image: UIImage.init(named: "BackgroundSearch"))
-//        backgroundView.frame(forAlignmentRect: self.tableView.frame)
-//        self.tableView.backgroundView = backgroundView
-//        
-//        let navigationBar = self.navigationController?.navigationBar
-//        navigationBar?.barTintColor = UIColor(colorLiteralRed: 112.0/255, green: 89.0/255, blue: 181.0/255, alpha: 1.0)
-//        navigationBar?.tintColor = UIColor(colorLiteralRed: 112.0/255, green: 180.0/255, blue: 255.0/255, alpha: 1.0)
-//        
-//        if let navbarTitleTextAttributes = NSDictionary(object: UIColor.white, forKey: NSForegroundColorAttributeName as NSCopying) as? Dictionary<String, Any> {
-//            navigationBar?.titleTextAttributes = navbarTitleTextAttributes
-//        }
-//        
-//        //设置表视图标题栏颜色
-//        UITableViewHeaderFooterView.appearance().tintColor = UIColor(colorLiteralRed: 112.0/255, green: 180.0/255, blue: 255.0/255, alpha: 1.0)
-//        self.clearsSelectionOnViewWillAppear = false
-//        
-//        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        
-//        self.keyTypeList = [self.keyDict allKeys];
-//        
-//        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BackgroundSearch"]];
-//        [backgroundView setFrame:self.tableView.frame];
-//        self.tableView.backgroundView = backgroundView;
-//        
-//        UINavigationBar* navigationBar = self.navigationController.navigationBar;
-//        navigationBar.barTintColor = [UIColor colorWithRed:48.0/255 green:89.0/255 blue:181.0/255 alpha:1.0];
-//        navigationBar.tintColor = [UIColor colorWithRed:112.0/255 green:180.0/255 blue:255.0/255 alpha:1.0];
-//        
-//        NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
-//        navigationBar.titleTextAttributes = navbarTitleTextAttributes;
-//        
-//        //设置表视图标题栏颜色
-//        [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor colorWithRed:112.0/255 green:180.0/255 blue:255.0/255 alpha:1.0]];
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,9 +36,9 @@ class KeysTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let keyName = self.keyTypeList.object(at: section) as! String
-//        let keyList = self.keyDict.object(forKey: keyName)
-        return 10
+        let keyName = self.keyTypeList.object(at: section) as! String
+        let keyList = self.keyDict.object(forKey: keyName) as! NSArray
+        return keyList.count
     }
 
 
