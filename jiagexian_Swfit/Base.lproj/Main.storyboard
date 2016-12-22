@@ -72,23 +72,32 @@
                                 <rect key="frame" x="145" y="327" width="120" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="价格不限"/>
+                                <connections>
+                                    <action selector="selectPriceRange:" destination="vo7-fd-6CJ" eventType="touchUpInside" id="rCH-T9-6Wk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6U-xa-MCQ">
                                 <rect key="frame" x="145" y="429" width="120" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="选择日期"/>
+                                <connections>
+                                    <action selector="selectCheckout:" destination="vo7-fd-6CJ" eventType="touchUpInside" id="GgY-fL-nfG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGh-PM-Sj6">
                                 <rect key="frame" x="145" y="379" width="120" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="选择日期"/>
+                                <connections>
+                                    <action selector="selectCheckin:" destination="vo7-fd-6CJ" eventType="touchUpInside" id="iVb-my-erK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="搜索" image="HomeIcon" id="lR9-mP-jYW"/>
                     <connections>
-                        <outlet property="checkinDate" destination="VGh-PM-Sj6" id="K8c-av-04w"/>
+                        <outlet property="checkinDate" destination="VGh-PM-Sj6" id="kKD-2h-oG6"/>
                         <outlet property="checkoutDate" destination="w6U-xa-MCQ" id="VvX-sN-cZI"/>
                         <outlet property="priceRange" destination="Yaf-CR-XTs" id="vuO-dc-mVa"/>
                         <outlet property="selectCity" destination="SBH-gR-iSq" id="mV0-ye-FDf"/>
@@ -163,7 +172,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lKv-3X-lhT" id="Z8X-y3-GMd">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -228,7 +237,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="paG-zy-lRC" id="clH-Le-bdw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -259,7 +268,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vdB-dX-JDK" id="52j-tr-ZOB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

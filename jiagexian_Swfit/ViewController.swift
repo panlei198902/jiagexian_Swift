@@ -30,12 +30,21 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
     @IBOutlet weak var checkinDate: UIButton!
     @IBOutlet weak var checkoutDate: UIButton!
     
-    let checkinView:MyDatePickerViewController? = nil
-    let checkoutView:MyDatePickerViewController? = nil
+    var checkinView:MyDatePickerViewController? = nil
+    var checkoutView:MyDatePickerViewController? = nil
+    var priceSelect: MyPickerViewController? = nil
     var cityInfo:Any? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkinView = MyDatePickerViewController()
+        checkinView?.delegate = self
+        
+        checkoutView = MyDatePickerViewController()
+        checkoutView?.delegate = self
+        
+        priceSelect = MyPickerViewController()
+        priceSelect?.delegate = self
         
     }
     
@@ -110,7 +119,16 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
             }
         }
     }
-    
+    @IBAction func selectPriceRange(_ sender: UIButton) {
+        self.priceSelect?.show(in: self.view)
+    }
+    @IBAction func selectCheckout(_ sender: UIButton) {
+        self.checkoutView?.show(in: self.view)
+    }
+    @IBAction func selectCheckin(_ sender: UIButton) {
+        self.checkinView?.show(in: self.view)
+    }
+
     func myPickDateViewControllerDidFinish(_ controller: MyDatePickerViewController!, andSelectedDate selected: Date!) {
         let date = DateFormatter()
         date.dateFormat = "yyyy-MM-dd"
