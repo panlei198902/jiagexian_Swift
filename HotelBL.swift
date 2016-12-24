@@ -15,7 +15,7 @@ class HotelBL: NSObject {
     //定义几个HTTP相关常量
     let HOST_NAME = "jiagexian.com"
     let KEY_QUERY_URL = "http://jiagexian.com/ajaxplcheck.mobile?method=mobilesuggest&v=1&city="
-    let HOTEL_QUERY_URL = "/hotelListForMobile.mobile?newSearch=1"
+    let HOTEL_QUERY_URL = "http://jiagexian.com/hotelListForMobile.mobile?newSearch=1"
     
     //单例
     static let sharedInstance: HotelBL = {
@@ -87,12 +87,13 @@ class HotelBL: NSObject {
     //
     //    }
     //
-    func queryHotel(keyInfo: NSDictionary) {
+    func queryHotel(keyInfo: NSMutableDictionary) {
         
         var strURL = self.HOTEL_QUERY_URL
         strURL = strURL.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         
-        var param = Dictionary<String, Any>()
+        var param:Parameters = Dictionary<String, Any>()
+        param["f_plcityid"] = keyInfo.object(forKey: "Plcityid")
         param["f_plcityid"] = keyInfo.object(forKey: "Plcityid")
         param["q"] = keyInfo.object(forKey: "key")
         param["currentPage"] = keyInfo.object(forKey: "currentPage")
@@ -113,28 +114,40 @@ class HotelBL: NSObject {
         
         Alamofire.request(strURL, method: .post,
                           parameters: param,
-                          encoding: JSONEncoding.default,
-                          headers: nil).responseJSON { response in
+                          encoding: JSONEncoding.default).responseData { (response) in
                             debugPrint(response)
                             let list = NSMutableArray()
-                            if let dataResult = response.result.value as? Data {
-                                let xml = SWXMLHash.parse(dataResult)
-                                var n = 0
-                                var hotelElement = xml["root"]["hotel_list"]["hotel"][n].element?.text
-                                repeat {
-                                    var dict = Dictionary <String, Any>()
-                                    dict["id"] = xml["root"]["hotel_list"]["hotel"][n]["id"].element?.text!
-                                    dict["name"] = xml["root"]["hotel_list"]["hotel"][n]["name"].element?.text!
-                                    dict["city"] = xml["root"]["hotel_list"]["hotel"][n]["city"].element?.text!
-                                    dict["address"] = xml["root"]["hotel_list"]["hotel"][n]["address"].element?.text!
-                                    dict["phone"] = xml["root"]["hotel_list"]["hotel"][n]["phone"].element?.text!
-                                    dict["lowprice"] = BLHelp.prePrice(price: (xml["root"]["hotel_list"]["hotel"][n]["lowprice"].element?.text)!)
-                                    
-                                    dict["grade"] = BLHelp.preGrade(grade: (xml["root"]["hotel_list"]["hotel"][n]["grade"].element?.text)!)
-                                    
-                                    dict["description"] = xml["root"]["hotel_list"]["hotel"][n]["description"].element?.text!
-                                    //属性名字
-                                    dict["img"] = xml["root"]["hotel_list"]["hotel"][n].element?.attribute(by: "img")?.text
+                            if let dataResult = response.result.value {
+                                    print(dataResult)
+                                    let xml = SWXMLHash.parse(dataResult)
+                                    var n = 0
+                                    var hotelElement = xml["root"]["hotel_list"]["hotel"][n].element?.text
+                                    repeat {
+                                        var dict = Dictionary <String, Any>()
+                                        dict["id"] = xml["root"]["hotel_list"]["hotel"][n]["id"].element?.text!
+                                        dict["name"] = xml["root"]["hotel_list"]["hotel"][n]["name"].element?.text!
+                                        dict["city"] = xml["root"]["hotel_list"]["hotel"][n]["city"].element?.text!
+                                        dict["address"] = xml["root"]["hotel_list"]["hotel"][n]["address"].element?.text!
+                                        dict["phone"] = xml["root"]["hotel_list"]["hotel"][n]["phone"].element?.text!
+                                        
+                                        //这里有问题
+                                        dict["lowprice"] = BLHelp.prePrice(price: (xml["root"]["hotel_list"]["hotel"][n]["lowprice"].element?.text)!)
+                                        
+                                        dict["grade"] = BLHelp.preGrade(grade: (xml["root"]["hotel_list"]["hotel"][n]["grade"].element?.text)!)
+                                        
+                                        dict["description"] = xml["root"]["hotel_list"]["hotel"][n]["description"].element?.text!
+                                        //属性名字
+                                        dict["img"] = xml["root"]["hotel_list"]["hotel"][n].element?.attribute(by: "img")?.text
+                                        n = n + 1 //下一个元素
+                                        list.add(dict)
+                                        hotelElement = xml["root"]["hotel_list"]["hotel"][n].element?.text
+                                        
+                                    } while hotelElement != nil
+                                    //抛出通知
+                    
+
+        }
+        
                                     
                                     //    NSMutableDictionary *dict = [NSMutableDictionary new];
                                     //    //取id
@@ -185,16 +198,11 @@ class HotelBL: NSObject {
                                     //    NSString *src = [TBXML valueOfAttributeNamed:@"src" forElement:imgElement];
                                     //    [dict setValue:src forKey:@"img"];
                                     //    }
-                                    n = n + 1 //下一个元素
-                                    list.add(dict)
-                                    hotelElement = xml["root"]["hotel_list"]["hotel"][n].element?.text
-                                    
-                                } while hotelElement != nil
-                                //抛出通知
+
                             }
                             
                             
-        }
+    
         
         
         

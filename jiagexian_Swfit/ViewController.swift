@@ -33,7 +33,11 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
     var checkinView:MyDatePickerViewController? = nil
     var checkoutView:MyDatePickerViewController? = nil
     var priceSelect: MyPickerViewController? = nil
-    var hotelQueryKey = Dictionary<String, String>()
+    //hotel查询条件
+    var hotelQueryKey = NSMutableDictionary()
+    //关键字查询结果
+    var keyDict: Any? = nil
+    //
     var cityInfo: Any? = nil
     
     override func viewDidLoad() {
@@ -82,17 +86,21 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
             }
             let tempDict = self.cityInfo as! NSDictionary
             let plcityID = tempDict.object(forKey: "Plcityid") as! String
+            self.hotelQueryKey.setValue(plcityID, forKey: "Plcityid")
+            self.hotelQueryKey.setValue("1", forKey: "currentPage")
+            self.hotelQueryKey.setValue(self.selectKey.titleLabel?.text, forKey: "key")
+            self.hotelQueryKey.setValue(self.priceRange.titleLabel?.text, forKey: "Price")
+            self.hotelQueryKey.setValue(self.checkinDate.titleLabel?.text, forKey: "Checkin")
+            self.hotelQueryKey.setValue(self.checkoutDate.titleLabel?.text, forKey: "Checkout")
+       
+//            self.hotelQueryKey[plcityID] = "Plcityid"
+//            self.hotelQueryKey["currentPage"] = "1"
+//            self.hotelQueryKey["key"] = self.selectKey.titleLabel?.text
+//            self.hotelQueryKey["Price"] = self.priceRange.titleLabel?.text
+//            self.hotelQueryKey["Checkin"] = self.checkinDate.titleLabel?.text
+//            self.hotelQueryKey["Checkout"] = self.checkoutDate.titleLabel?.text
             
-            self.hotelQueryKey[plcityID] = "Plcityid"
-            self.hotelQueryKey["currentPage"] = "1"
-            self.hotelQueryKey["key"] = self.selectKey.titleLabel?.text
-            self.hotelQueryKey["Price"] = self.priceRange.titleLabel?.text
-            self.hotelQueryKey["Checkin"] = self.checkinDate.titleLabel?.text
-            self.hotelQueryKey["Checkout"] = self.checkoutDate.titleLabel?.text
-            
-            if let hotelQueryKeyNSDic = self.hotelQueryKey as? NSDictionary {
-                HotelBL.sharedInstance.queryHotel(keyInfo: hotelQueryKeyNSDic)
-            }
+                HotelBL.sharedInstance.queryHotel(keyInfo: hotelQueryKey)
         
             return false
         }
@@ -102,7 +110,7 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
     //成功查询到关键字
     func querySelectkey(not:Notification) {
         if not.object != nil {
-            self.cityInfo = not.object
+            self.keyDict = not.object
             performSegue(withIdentifier: "showkeys", sender: nil)
         } else {
             let alert = UIAlertController(title: "提示信息", message: "没有数据", preferredStyle: .alert)
@@ -115,7 +123,7 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
     
     func closeCitiesView(info: NSDictionary) {
 
-        self.cityInfo = info 
+        self.cityInfo = info
         self.dismiss(animated: false, completion: nil)
         if let cityname = info["name"] as? String {
             self.selectCity.setTitle(cityname, for: .normal)
@@ -140,7 +148,7 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
                 let nvgViewController = segue.destination as! UINavigationController
                 let topViewController = nvgViewController.topViewController as! KeysTableViewController
                 topViewController.delegate = self
-                topViewController.keyDict = self.cityInfo as! NSDictionary
+                topViewController.keyDict = self.keyDict as! NSDictionary
             default:
                 break
             }
