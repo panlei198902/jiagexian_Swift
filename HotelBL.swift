@@ -32,7 +32,7 @@ class HotelBL: NSObject {
         print("strURL: \(strURL)")
         Alamofire.request(strURL).responseJSON { response in
             debugPrint(response)
-            
+            print("response: \(response)")
             if let json = response.result.value{
                 do {
                     print("json: \(json)")
@@ -67,7 +67,7 @@ class HotelBL: NSObject {
         var strURL = self.HOTEL_QUERY_URL
         strURL = strURL.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         
-        var param:Parameters = Dictionary<String, String>()
+        var param = NSDictionary() as! Parameters
         param["f_plcityid"] = keyInfo.object(forKey: "Plcityid")
         param["f_plcityid"] = keyInfo.object(forKey: "Plcityid")
         param["q"] = keyInfo.object(forKey: "key")
@@ -88,8 +88,7 @@ class HotelBL: NSObject {
         param["toDate"] = keyInfo.object(forKey: "Checkout")
         print("param: \(param)")
         Alamofire.request(strURL, method: .post,
-                          parameters: param,
-                          encoding: JSONEncoding.default).responseData { (response) in
+                          parameters: param).responseData { response in
                             debugPrint(response)
                             let list = NSMutableArray()
                             if let dataResult = response.result.value{
@@ -98,29 +97,30 @@ class HotelBL: NSObject {
                                     let xml = SWXMLHash.parse(dataResult)
                                     print("xml: \(xml)")
 //                                    print(dataResult.description)
-                                    var n = 1
-                                    var hotelElement = xml["root"]["hotel_list"].element
-                                    while (hotelElement != nil) {
+
+                                    
+                                    for elem in xml["result"]["hotel_list"]["hotel"] {
                                         var dict = Dictionary <String, Any>()
-                                        dict["id"] = xml["root"]["hotel_list"]["hotel"][n]["id"].element?.text!
-                                        dict["name"] = xml["root"]["hotel_list"]["hotel"][n]["name"].element?.text!
-                                        dict["city"] = xml["root"]["hotel_list"]["hotel"][n]["city"].element?.text!
-                                        dict["address"] = xml["root"]["hotel_list"]["hotel"][n]["address"].element?.text!
-                                        dict["phone"] = xml["root"]["hotel_list"]["hotel"][n]["phone"].element?.text!
+                                        print("id: \(elem["id"].element?.text)")
+                                        dict["id"] = elem["id"].element?.text
+                                        dict["name"] = elem["name"].element?.text!
+                                        dict["city"] = elem["city"].element?.text!
+                                        dict["address"] = elem["address"].element?.text!
+                                        dict["phone"] = elem["phone"].element?.text!
                                         
                                         //这里有问题
-                                        dict["lowprice"] = BLHelp.prePrice(price: (xml["root"]["hotel_list"]["hotel"][n]["lowprice"].element?.text)!)
+                                        dict["lowprice"] = BLHelp.prePrice(price: (elem["lowprice"].element?.text)!)
                                         
-                                        dict["grade"] = BLHelp.preGrade(grade: (xml["root"]["hotel_list"]["hotel"][n]["grade"].element?.text)!)
+                                        dict["grade"] = BLHelp.preGrade(grade: (elem["grade"].element?.text)!)
                                         
-                                        dict["description"] = xml["root"]["hotel_list"]["hotel"][n]["description"].element?.text!
+                                        dict["description"] = elem["description"].element?.text!
                                         //属性名字
-                                        dict["img"] = xml["root"]["hotel_list"]["hotel"][n].element?.attribute(by: "img")?.text
-                                        n = n + 1 //下一个元素
+                                        dict["img"] = elem["result"]["hotel_list"]["hotel"].element?.attribute(by: "img")?.text
+
                                         list.add(dict)
-                                        hotelElement = xml["root"]["hotel_list"]["hotel"][n].element
-                                        
+
                                     }
+
                                     //抛出通知
                                 }
                                 catch let error {
