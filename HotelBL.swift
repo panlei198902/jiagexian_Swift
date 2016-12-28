@@ -67,7 +67,7 @@ class HotelBL: NSObject {
         var strURL = self.HOTEL_QUERY_URL
         strURL = strURL.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         
-        var param:Parameters = Dictionary<String, Any>()
+        var param:Parameters = Dictionary<String, String>()
         param["f_plcityid"] = keyInfo.object(forKey: "Plcityid")
         param["f_plcityid"] = keyInfo.object(forKey: "Plcityid")
         param["q"] = keyInfo.object(forKey: "key")
@@ -76,13 +76,13 @@ class HotelBL: NSObject {
         let price = keyInfo.object(forKey: "Price") as! NSString
         print("price :\(price)")
         if price.isEqual(to: "价格不限") {
-            param["priceSlider_minSliderDisplay"] = keyInfo.object(forKey: "￥0")
-            param["priceSlider_maxSliderDisplay"] = keyInfo.object(forKey: "￥3000+")
+            param["priceSlider_minSliderDisplay"] = "￥0"
+            param["priceSlider_maxSliderDisplay"] = "￥3000+"
         } else {
             let set = CharacterSet(charactersIn: "--> ")
             let tempArray = price.components(separatedBy: set)
-            param["priceSlider_minSliderDisplay"] = keyInfo.object(forKey: tempArray[0])
-            param["priceSlider_maxSliderDisplay"] = keyInfo.object(forKey: tempArray[3])
+            param["priceSlider_minSliderDisplay"] = tempArray[0]
+            param["priceSlider_maxSliderDisplay"] = tempArray[3]
         }
         param["fromDate"] = keyInfo.object(forKey: "Checkin")
         param["toDate"] = keyInfo.object(forKey: "Checkout")
@@ -92,12 +92,12 @@ class HotelBL: NSObject {
                           encoding: JSONEncoding.default).responseData { (response) in
                             debugPrint(response)
                             let list = NSMutableArray()
-                            if let dataResult = response.result.value, let utf8Text = String(data: dataResult, encoding: .utf8) {
-                                print("Data: \(utf8Text)")
+                            if let dataResult = response.result.value{
                                 do {
+                                    print("dataResult: \(dataResult)")
                                     let xml = SWXMLHash.parse(dataResult)
-                                    print(xml)
-                                    print(dataResult.description)
+                                    print("xml: \(xml)")
+//                                    print(dataResult.description)
                                     var n = 1
                                     var hotelElement = xml["root"]["hotel_list"].element
                                     while (hotelElement != nil) {
