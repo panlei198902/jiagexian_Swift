@@ -23,11 +23,12 @@ class HotelBL: NSObject {
         return instance
     }()
     
-    //拉取关键字方法
+
     func selectKey(city: String) {
         
         //转换url
         var strURL = self.KEY_QUERY_URL + city
+        var dict = NSDictionary()
         strURL = strURL.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         print("strURL: \(strURL)")
         Alamofire.request(strURL).responseJSON { response in
@@ -41,10 +42,9 @@ class HotelBL: NSObject {
                         //利用自带的json库转换成Data
                         //如果设置options为JSONSerialization.WritingOptions.prettyPrinted，则打印格式更好阅读
                         let data = try? JSONSerialization.data(withJSONObject: json, options: [])
-                        let dict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+                        dict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+                        
                         print("dict: \(dict)")
-                        //抛出通知
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: BLQueryKeyFinishedNotification), object: dict)
                     }
                     
                 } catch {
@@ -54,7 +54,8 @@ class HotelBL: NSObject {
                 
                 
             }
-            
+            //抛出通知
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: BLQueryKeyFinishedNotification), object: dict)
             
         }
         
@@ -96,9 +97,7 @@ class HotelBL: NSObject {
                                     print("dataResult: \(dataResult)")
                                     let xml = SWXMLHash.parse(dataResult)
                                     print("xml: \(xml)")
-//                                    print(dataResult.description)
-
-                                    
+                              
                                     for elem in xml["result"]["hotel_list"]["hotel"] {
                                         var dict = Dictionary <String, Any>()
                                         print("id: \(elem["id"].element?.text)")
@@ -108,14 +107,14 @@ class HotelBL: NSObject {
                                         dict["address"] = elem["address"].element?.text!
                                         dict["phone"] = elem["phone"].element?.text!
                                         
-                                        //这里有问题
+
                                         dict["lowprice"] = BLHelp.prePrice(price: (elem["lowprice"].element?.text)!)
                                         
                                         dict["grade"] = BLHelp.preGrade(grade: (elem["grade"].element?.text)!)
                                         
                                         dict["description"] = elem["description"].element?.text!
                                         //属性名字
-                                        dict["img"] = elem["result"]["hotel_list"]["hotel"].element?.attribute(by: "img")?.text
+                                        dict["img"] = elem["img"].element?.attribute(by: "src")?.text
 
                                         list.add(dict)
 
@@ -123,9 +122,7 @@ class HotelBL: NSObject {
 
                                     //抛出通知
                                 }
-                                catch let error {
-                                    print(error)
-                                }
+    
                             }
         }
     }

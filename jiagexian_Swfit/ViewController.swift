@@ -37,8 +37,10 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
     var hotelQueryKey = NSMutableDictionary()
     //关键字查询结果
     var keyDict: Any? = nil
-    //
+    //城市信息
     var cityInfo: Any? = nil
+    //酒店信息
+    var hotelDict: Any? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +62,8 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
     
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(querySelectkey(not:)), name: NSNotification.Name(rawValue: BLQueryKeyFinishedNotification), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(queryHotel(not:)), name: NSNotification.Name(rawValue: BLQueryHotelFinishedNotification), object: nil)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -92,15 +96,8 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
             self.hotelQueryKey.setValue(self.priceRange.titleLabel?.text, forKey: "Price")
             self.hotelQueryKey.setValue(self.checkinDate.titleLabel?.text, forKey: "Checkin")
             self.hotelQueryKey.setValue(self.checkoutDate.titleLabel?.text, forKey: "Checkout")
-       
-//            self.hotelQueryKey[plcityID] = "Plcityid"
-//            self.hotelQueryKey["currentPage"] = "1"
-//            self.hotelQueryKey["key"] = self.selectKey.titleLabel?.text
-//            self.hotelQueryKey["Price"] = self.priceRange.titleLabel?.text
-//            self.hotelQueryKey["Checkin"] = self.checkinDate.titleLabel?.text
-//            self.hotelQueryKey["Checkout"] = self.checkoutDate.titleLabel?.text
             
-                HotelBL.sharedInstance.queryHotel(keyInfo: hotelQueryKey)
+            HotelBL.sharedInstance.queryHotel(keyInfo: hotelQueryKey)
         
             return false
         }
@@ -119,6 +116,20 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
             self.present(alert, animated: true, completion: nil)
         }
         
+    }
+    
+    //成功查询到酒店
+    func queryHotel(not:Notification) {
+        if not.object != nil {
+            self.hotelDict = not.object
+            performSegue(withIdentifier: "queryHotel", sender: nil)
+        } else {
+            let alert = UIAlertController(title: "提示信息", message: "没有数据", preferredStyle: .alert)
+            let button = UIAlertAction(title: "了解", style: .cancel, handler: nil)
+            alert.addAction(button)
+            self.present(alert, animated: true, completion: nil)
+        
+        }
     }
     
     func closeCitiesView(info: NSDictionary) {
@@ -149,6 +160,10 @@ class ViewController: UIViewController, CitesTableViewControllerDelegate, KeysTa
                 let topViewController = nvgViewController.topViewController as! KeysTableViewController
                 topViewController.delegate = self
                 topViewController.keyDict = self.keyDict as! NSDictionary
+            case "queryHotel":
+                let destinationViewController = segue.destination as! HotelListTableViewController
+                destinationViewController.hotelList = self.hotelDict
+                destinationViewController.queryKey = self.hotelQueryKey
             default:
                 break
             }

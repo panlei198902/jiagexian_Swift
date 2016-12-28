@@ -9,7 +9,13 @@
 import UIKit
 
 class HotelListTableViewController: UITableViewController {
-
+    
+    var currentPage = 1 //当前页数
+    var hotelList:Any? = nil //酒店查询结果
+    var queryKey = NSMutableDictionary()   //酒店查询条件
+    var roomList:Any? = nil //房间查询结果
+    var queryRoomKey = NSMutableDictionary() //房间查询条件
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
