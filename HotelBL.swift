@@ -50,8 +50,7 @@ class HotelBL: NSObject {
                 } catch {
                     print("error")
                 }
-                
-                
+              
                 
             }
             //抛出通知
@@ -115,12 +114,12 @@ class HotelBL: NSObject {
                                         dict["description"] = elem["description"].element?.text!
                                         //属性名字
                                         dict["img"] = elem["img"].element?.attribute(by: "src")?.text
-
                                         list.add(dict)
 
                                     }
 
                                     //抛出通知
+                                    NotificationCenter.default.post(name: NSNotification.Name(rawValue:BLQueryHotelFinishedNotification), object: list)
                                 }
     
                             }

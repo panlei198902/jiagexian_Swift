@@ -14,6 +14,8 @@
 		C246BA781E004E98000A001E /* HotelListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246BA771E004E98000A001E /* HotelListTableViewController.swift */; };
 		C246BA7A1E004EA3000A001E /* RoomsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246BA791E004EA3000A001E /* RoomsListTableViewController.swift */; };
 		C24AE1D81E00F149001AAE87 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = C24AE1D71E00F149001AAE87 /* cities.plist */; };
+		C27D47D01E14A3F100D7C111 /* HotelListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D47CF1E14A3F100D7C111 /* HotelListCellTableViewCell.swift */; };
+		C27D47D31E14B45C00D7C111 /* myIndex.html in Resources */ = {isa = PBXBuildFile; fileRef = C27D47D21E14B45C00D7C111 /* myIndex.html */; };
 		C28587E21E0ACB1D0066AE66 /* MyDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28587DD1E0ACB1D0066AE66 /* MyDatePickerViewController.m */; };
 		C28587E31E0ACB1D0066AE66 /* MyDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28587DE1E0ACB1D0066AE66 /* MyDatePickerViewController.xib */; };
 		C28587E41E0ACB1D0066AE66 /* MyPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28587E01E0ACB1D0066AE66 /* MyPickerViewController.m */; };
@@ -62,6 +64,8 @@
 		C246BA771E004E98000A001E /* HotelListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelListTableViewController.swift; sourceTree = "<group>"; };
 		C246BA791E004EA3000A001E /* RoomsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsListTableViewController.swift; sourceTree = "<group>"; };
 		C24AE1D71E00F149001AAE87 /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
+		C27D47CF1E14A3F100D7C111 /* HotelListCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelListCellTableViewCell.swift; sourceTree = "<group>"; };
+		C27D47D21E14B45C00D7C111 /* myIndex.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = myIndex.html; sourceTree = "<group>"; };
 		C28587DC1E0ACB1D0066AE66 /* MyDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDatePickerViewController.h; sourceTree = "<group>"; };
 		C28587DD1E0ACB1D0066AE66 /* MyDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDatePickerViewController.m; sourceTree = "<group>"; };
 		C28587DE1E0ACB1D0066AE66 /* MyDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDatePickerViewController.xib; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				C246BA751E004E5D000A001E /* KeysTableViewController.swift */,
 				C246BA771E004E98000A001E /* HotelListTableViewController.swift */,
 				C246BA791E004EA3000A001E /* RoomsListTableViewController.swift */,
+				C27D47CF1E14A3F100D7C111 /* HotelListCellTableViewCell.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 		C2F360A01DF70BF100B0B058 /* jiagexian_Swfit */ = {
 			isa = PBXGroup;
 			children = (
+				C27D47D21E14B45C00D7C111 /* myIndex.html */,
 				C24AE1D71E00F149001AAE87 /* cities.plist */,
 				C246BA721E004E1E000A001E /* ViewController */,
 				C2F360A11DF70BF100B0B058 /* AppDelegate.swift */,
@@ -363,6 +369,7 @@
 			files = (
 				C28587E51E0ACB1D0066AE66 /* MyPickerViewController.xib in Resources */,
 				C2F360AC1DF70BF100B0B058 /* LaunchScreen.storyboard in Resources */,
+				C27D47D31E14B45C00D7C111 /* myIndex.html in Resources */,
 				C2F360A91DF70BF100B0B058 /* Assets.xcassets in Resources */,
 				C2F360A71DF70BF100B0B058 /* Main.storyboard in Resources */,
 				C24AE1D81E00F149001AAE87 /* cities.plist in Resources */,
@@ -533,6 +540,7 @@
 				C28587E21E0ACB1D0066AE66 /* MyDatePickerViewController.m in Sources */,
 				C246BA741E004E44000A001E /* CitesTableViewController.swift in Sources */,
 				C296F9B21DFD5E4B00139D33 /* RoomBL.swift in Sources */,
+				C27D47D01E14A3F100D7C111 /* HotelListCellTableViewCell.swift in Sources */,
 				C246BA7A1E004EA3000A001E /* RoomsListTableViewController.swift in Sources */,
 				C2F360D11DF70C2700B0B058 /* BLHelp.swift in Sources */,
 				C2F360A41DF70BF100B0B058 /* ViewController.swift in Sources */,

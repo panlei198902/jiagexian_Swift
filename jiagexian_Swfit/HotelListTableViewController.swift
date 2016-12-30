@@ -15,10 +15,10 @@ class HotelListTableViewController: UITableViewController {
     var queryKey = NSMutableDictionary()   //酒店查询条件
     var roomList:Any? = nil //房间查询结果
     var queryRoomKey = NSMutableDictionary() //房间查询条件
-    
+    var hotellistDict = NSMutableArray()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        hotellistDict = hotelList as! NSMutableArray
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,23 +35,42 @@ class HotelListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.hotellistDict.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! HotelListCellTableViewCell
+        let dict = self.hotellistDict.object(at: indexPath.row) as! Dictionary<String, String>
+        cell.hotelName.text = dict["name"]
+        cell.hotelTel.text = dict["phone"]
+        cell.hotelGrade.text = dict["grade"]
+        cell.hotelPrice.text = dict["lowprice"]
+        cell.hotelAddress.text = dict["address"]
+        
+        let htmlPath = Bundle.main.path(forResource: "myIndex", ofType: "html")
+        do {
+            let html = try String(contentsOfFile: htmlPath!, encoding: String.Encoding.utf8)
+            let range = html.range(of: "####")
+            if range?.isEmpty != false {
+                let scr = dict["img"]
+                let newHtml = html.replacingCharacters(in: range!, with: scr!)
+                cell.img.loadHTMLString(newHtml, baseURL: nil)
+            }
+        } catch {
+            print(error)
+        }
+        
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
