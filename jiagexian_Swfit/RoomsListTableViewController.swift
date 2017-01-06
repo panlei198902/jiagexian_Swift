@@ -10,6 +10,8 @@ import UIKit
 
 class RoomsListTableViewController: UITableViewController {
 
+    var roomList = NSMutableArray()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

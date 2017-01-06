@@ -13,9 +13,10 @@ class HotelListTableViewController: UITableViewController {
     var currentPage = 1 //当前页数
     var hotelList:Any? = nil //酒店查询结果
     var queryKey = NSMutableDictionary()   //酒店查询条件
-    var roomList:Any? = nil //房间查询结果
+    var roomList = NSArray() //房间查询结果
     var queryRoomKey = NSMutableDictionary() //房间查询条件
     var hotellistDict = NSMutableArray()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hotellistDict = hotelList as! NSMutableArray
@@ -29,6 +30,43 @@ class HotelListTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+//        NotificationCenter.default.addObserver(self, selector: #selector(queryHotelFinished(not:)), name: NSNotification.Name(rawValue: BLQueryRoomFinishedNotification), object: nil)
+    }
+    
+    func queryHotelFinished(not:Notification) {
+        let resList = not.object as! Array<Any>
+        self.roomList.addingObjects(from: resList)
+        self.tableView.reloadData()
+//        NSArray *resList = not.object;
+//        if ([resList count] < 20) {
+//            self.loadViewCell.hidden = YES;
+//        } else {
+//            self.loadViewCell.hidden = NO;
+//        }
+//        
+//        if (currentPage == 1) {
+//            self.list = [NSMutableArray new];
+//        }
+//        
+//        [self.list addObjectsFromArray:resList];
+//        [self.tableView reloadData];
+    }
+    
+    //查询房间信息成功
+    func queryRoomFinished(not:NSNotification) {
+        self.roomList = not.object as! NSArray
+        if self.roomList.count == 0 {
+            let alert = UIAlertController.init(title: "出错信息", message: "没数据", preferredStyle: .alert)
+            let alertButton = UIAlertAction.init(title: "ok", style: .cancel, handler: nil)
+            alert.addAction(alertButton)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            performSegue(withIdentifier: "showRoomList", sender: nil)
+        }
     }
 
     // MARK: - Table view data source
@@ -71,7 +109,32 @@ class HotelListTableViewController: UITableViewController {
         return cell
     }
     
-
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "showRoomList" {
+            let qkey = NSMutableDictionary()
+            qkey.setValue(self.queryKey.object(forKey: "Checkin"), forKey:  "Checkin")
+            qkey.setValue(self.queryKey.object(forKey: "Checkout"), forKey: "Checkout")
+            
+            let indexPath = self.tableView.indexPathForSelectedRow
+            let dict = self.roomList.object(at: indexPath!.row) as! NSDictionary
+            qkey.setValue(dict.object(forKey: "id"), forKey: "hotelId")
+            
+            self.queryRoomKey = qkey
+            RoomBL.sharedInstance.queryRoom(keyInfo: self.queryRoomKey)
+            
+            
+        }
+        return true
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showRoomList" {
+            let roomListViewController = segue.destination as! RoomsListTableViewController
+            roomListViewController.roomList = self.roomList as! NSMutableArray
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

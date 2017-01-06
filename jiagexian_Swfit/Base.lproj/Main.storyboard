@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D12b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BT5-Uv-cS7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D17a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BT5-Uv-cS7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -238,7 +238,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="paG-zy-lRC" id="clH-Le-bdw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2UD-xa-bET">
@@ -318,7 +318,7 @@
                                     <outlet property="hotelPrice" destination="g1c-kI-HzO" id="B0O-ID-udH"/>
                                     <outlet property="hotelTel" destination="gUx-cL-XnI" id="hYV-F8-8ix"/>
                                     <outlet property="img" destination="2UD-xa-bET" id="rXY-DI-EfM"/>
-                                    <segue destination="R4u-M2-hm8" kind="show" id="2d3-Dd-pDm"/>
+                                    <segue destination="R4u-M2-hm8" kind="show" identifier="showRoomList" id="2d3-Dd-pDm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
